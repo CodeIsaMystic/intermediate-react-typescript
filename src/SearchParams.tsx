@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, FunctionComponent } from "react";
-import pet, { ANIMALS, Animal } from "@frontendmasters/pet";
 import { RouteComponentProps } from "@reach/router";
+import pet, { ANIMALS, Animal } from "@frontendmasters/pet";
 import useDropdown from "./useDropdown";
 import Results from "./Results";
 import ThemeContext from "./ThemeContext";

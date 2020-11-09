@@ -1,6 +1,6 @@
 import React from "react";
-import pet, { Photo } from "@frontendmasters/pet";
-import { navigate, RouteComponentProps, Router } from "@reach/router";
+import pet, { Photo, AnimalResponse } from "@frontendmasters/pet";
+import { navigate, RouteComponentProps } from "@reach/router";
 import Carousel from "./Carousel";
 import Modal from "./Modal";
 import ErrorBoundary from "./ErrorBoundary";
@@ -10,7 +10,8 @@ class Details extends React.Component<RouteComponentProps<{ id: string }>> {
   public state = {
     loading: true,
     showModal: false,
-    name: "", animal: "",
+    name: "",
+    animal: "",
     location: "",
     description: "",
     media: [] as Photo[],
@@ -24,7 +25,7 @@ class Details extends React.Component<RouteComponentProps<{ id: string }>> {
     }
     pet
       .animal(+this.props.id)
-      .then(({ animal }) => {
+      .then(({ animal }: AnimalResponse) => {
         this.setState({
           url: animal.url,
           name: animal.name,
